@@ -1,0 +1,13 @@
+{:paths   ["src/main"]
+ :deps    {}
+ :aliases {:dev {:extra-paths ["src/workspaces" "src/dev"]
+                 :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]
+                 :extra-deps  {org.clojure/clojure         {:mvn/version "1.11.1" :scope "provided"}
+                               org.clojure/clojurescript   {:mvn/version "1.11.60" :scope "provided"}
+                               com.fulcrologic/fulcro      {:mvn/version "3.6.0-RC4" :scope "provided"}
+                               thheller/shadow-cljs        {:mvn/version "2.20.16"}
+                               com.github.awkay/workspaces {:mvn/version "1.0.3"}
+                               camel-snake-kebab {:mvn/version "0.4.3"}
+                               nrepl {:mvn/version "1.1.0-alpha1"}
+                               cider/cider-nrepl {:mvn/version "0.29.0"}
+                               cider/piggieback {:mvn/version "0.5.3"}}}}}

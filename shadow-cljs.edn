@@ -1,0 +1,15 @@
+{:deps   {:aliases [:dev]}
+ :nrepl  {:port 9013
+          :host "0.0.0.0"}
+ :dev-http {8605 "resources/public"}
+ :builds {:workspaces {:target     :browser
+                       :output-dir "resources/public/js/workspaces"
+                       :asset-path "/js/workspaces"
+                       :devtools {:enabled true}
+                       ;; :devtools   {:preloads           [com.fulcrologic.fulcro.inspect.preload]
+                       ;;              :http-root          "resources/public"
+                                    
+                       ;;              ;:http-resource-root "."
+                       ;;              }
+                       :modules    {:main {:entries [se.w3t.flowbite.workspaces-main]}}}}}
+
