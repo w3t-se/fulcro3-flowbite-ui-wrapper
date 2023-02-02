@@ -1,11 +1,20 @@
 (ns se.w3t.flowbite.factory-helpers
   (:require
        [camel-snake-kebab.core :as csk]
+       [com.fulcrologic.fulcro.algorithms.react-interop :as interop]
     #?(:cljs react)
     #?(:cljs [com.fulcrologic.fulcro.dom :as dom]
        :clj  [com.fulcrologic.fulcro.dom-server :as dom])))
 
 (defn factory-apply
+  "Creates a function that can make elements of the given class."
+  [class]
+  (fn [props & children]
+    #?(:clj  (apply dom/create-element class props children)
+       ;; bug in Fulcro 3.4.4 and below makes above not work in cljs, though it should
+       :cljs (apply react/createElement class (clj->js props) children))))
+
+#_(defn factory-apply
   "Creates a function that can make elements of the given class."
   [class]
   (fn [props & children]

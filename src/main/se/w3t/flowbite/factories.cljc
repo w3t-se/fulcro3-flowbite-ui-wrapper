@@ -3,7 +3,8 @@
     [camel-snake-kebab.core :as csk]
     [se.w3t.flowbite.factory-helpers :as h]
     #?(:cljs [flowbite-react :as fbr]))
-   #?(:cljs (:require-macros [se.w3t.flowbite.factories :as f :refer [generate-factories]])))
+   ;; #?(:cljs (:require-macros [se.w3t.flowbite.factories :as f :refer [generate-factories]]))
+   )
 
 (def ui-accordion
   "An accordion allows users to toggle the display of sections of content.
@@ -195,11 +196,11 @@
 (def ui-spinner
   #?(:cljs (h/factory-apply fbr/Spinner)))
 
-(def ui-tab
-  #?(:cljs (h/factory-apply fbr/Tab)))
+(def ui-tabs
+  #?(:cljs (h/factory-apply fbr/Tabs)))
 
 (def ui-tab-item
-  #?(:cljs (h/factory-apply (.-Item fbr/Tab))))
+  #?(:cljs (h/factory-apply (.-Item fbr/Tabs))))
 
 (def ui-table
   #?(:cljs (h/factory-apply fbr/Table)))
