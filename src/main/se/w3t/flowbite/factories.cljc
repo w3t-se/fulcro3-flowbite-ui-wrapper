@@ -196,10 +196,10 @@
 (def ui-spinner
   #?(:cljs (h/factory-apply fbr/Spinner)))
 
-(def ui-tabs
-  #?(:cljs (h/factory-apply fbr/Tabs)))
+(def ui-tabs-group
+  #?(:cljs (h/factory-apply (.-Group fbr/Tabs))))
 
-(def ui-tab-item
+(def ui-tabs-item
   #?(:cljs (h/factory-apply (.-Item fbr/Tabs))))
 
 (def ui-table
