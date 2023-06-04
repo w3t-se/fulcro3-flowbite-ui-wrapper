@@ -1,10 +1,10 @@
 (ns se.w3t.flowbite.factories
    (:require
-    [camel-snake-kebab.core :as csk]
+    ;;[camel-snake-kebab.core :as csk]
     [se.w3t.flowbite.factory-helpers :as h]
     #?(:cljs [flowbite-react :as fbr]))
    ;; #?(:cljs (:require-macros [se.w3t.flowbite.factories :as f :refer [generate-factories]]))
-   )
+   #?(:clj (:gen-class)))
 
 (def ui-accordion
   "An accordion allows users to toggle the display of sections of content.

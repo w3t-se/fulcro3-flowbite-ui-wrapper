@@ -1,7 +1,7 @@
 (ns se.w3t.flowbite.factory-helpers
   (:require
-       [camel-snake-kebab.core :as csk]
-       [com.fulcrologic.fulcro.algorithms.react-interop :as interop]
+       ;;[camel-snake-kebab.core :as csk]
+       ;;[com.fulcrologic.fulcro.algorithms.react-interop :as interop]
     #?(:cljs react)
     #?(:cljs [com.fulcrologic.fulcro.dom :as dom]
        :clj  [com.fulcrologic.fulcro.dom-server :as dom])))
@@ -30,17 +30,19 @@
              (fn [props & children]
                (apply factory (clj->js props) children)))))
 
-#?(:clj
-   (defmacro generate-factory "Generate factory" [component]
-     (list 'def (symbol (csk/->kebab-case (str "Ui" component)))
-           (' se.w3t.flowbite.factory-helpers/factory-apply component))))
+(comment
 
-#?(:clj 
-   (defmacro generate-factories "Generate factory" [components]
-     (->> (for [c (eval components)]
-            (list 'def (symbol (csk/->kebab-case (str "Ui" c)))
-                  (' se.w3t.flowbite.factory-helpers/factory-apply c)))
-          (cons 'do))))
+  #?(:clj
+     (defmacro generate-factory "Generate factory" [component]
+       (list 'def (symbol (csk/->kebab-case (str "Ui" component)))
+             (' se.w3t.flowbite.factory-helpers/factory-apply component))))
+
+  #?(:clj 
+     (defmacro generate-factories "Generate factory" [components]
+       (->> (for [c (eval components)]
+              (list 'def (symbol (csk/->kebab-case (str "Ui" c)))
+                    (' se.w3t.flowbite.factory-helpers/factory-apply c)))
+            (cons 'do)))))
 
 (def components ["Carousel"
          "Checkbox"
